@@ -6,7 +6,7 @@ This is a library containing utility functions to be used with Django models
 Installtion
 ------------
 
-pip install git://github.com/Proteus-tech/django-model-tools.git
+> pip install git+git://github.com/Proteus-tech/django-model-tools.git
 
 Usage
 -------
