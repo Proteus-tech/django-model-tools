@@ -9,5 +9,5 @@ setup(
     author='Proteus Technologies Co. Ltd.',
     author_email='team@proteus-tech.com',
     url='https://github.com/Proteus-tech/django-model-tools',
-    requires=['django'], # should be able to support all django version
+    install_requires=['django'], # should be able to support all django version
     packages=['django_model_tools'])
