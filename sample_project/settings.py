@@ -1,7 +1,7 @@
 # Django settings for sample_project project.
 import os
 
-PROJECT_DIR = os.path.abspath(os.path.dirname(__file__))
+PROJECT_DIR = os.path.join(os.path.abspath(os.path.dirname(__file__)),'..')
 PROJECT_PATH_JOIN = lambda a, *p: os.path.join(PROJECT_DIR, a, *p)
 
 DEBUG = True
