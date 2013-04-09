@@ -4,7 +4,7 @@ from django.db import IntegrityError
 def force_save_not_null_nor_blank(*attribute_name_iter):
     """
     Decorator to be used with the "save" function of a model class to force certain fields to not be blank.
-    Would also throw error if the field doesn't exist or the field is null
+    Would also throw error if the field doesn't exist or the field is null or the field is string that contains only space.
 
     usage:
 
