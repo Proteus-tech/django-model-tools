@@ -4,7 +4,7 @@ from setuptools import setup
 
 setup(
     name='django-model-tools',
-    version='0.2',
+    version='0.3',
     description='Utility functions or decorators to be used with Django model classes',
     author='Proteus Technologies Co. Ltd.',
     author_email='team@proteus-tech.com',

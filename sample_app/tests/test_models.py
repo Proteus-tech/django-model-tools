@@ -1,12 +1,11 @@
 # -*- coding: utf-8 -*-
 
-import unittest
-
+from django.test import TestCase
 from django.db import IntegrityError
 
 from sample_app.models import SampleModel
 
-class TestSampleModel(unittest.TestCase):
+class TestSampleModel(TestCase):
     def test_save_successfully(self):
         sample_model = SampleModel()
         sample_model.a_field = 'abc'
@@ -42,3 +41,12 @@ class TestSampleModel(unittest.TestCase):
             sample_model.save()
 
         self.assertEqual(exc.exception.message, 'SampleModel.b_field may not be NULL or BLANK')
+
+    def test_save_field_is_spaces(self):
+        sample_model = SampleModel()
+        sample_model.a_field = ' '
+        sample_model.b_field = 'I am not space'
+        with self.assertRaises(IntegrityError) as exc:
+            sample_model.save()
+
+        self.assertEqual(exc.exception.message, 'SampleModel.a_field may not be NULL or BLANK')

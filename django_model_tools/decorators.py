@@ -16,7 +16,8 @@ def force_save_not_null_nor_blank(*attribute_name_iter):
         def check_not_null_nor_blank(instance, *args,**kwargs):
             if attribute_name_iter:
                 for attribute_name in attribute_name_iter:
-                    if not getattr(instance, attribute_name):
+                    attr = getattr(instance, attribute_name)
+                    if not attr or (isinstance(attr, basestring) and len(attr.strip()) == 0):
                         raise IntegrityError('%s.%s may not be NULL or BLANK' % (instance.__class__.__name__, attribute_name))
                 return func(instance, *args, **kwargs)
         return wraps(func)(check_not_null_nor_blank)
