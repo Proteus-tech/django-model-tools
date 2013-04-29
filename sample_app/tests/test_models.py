@@ -33,6 +33,18 @@ class TestSampleModel(TestCase):
 
         self.assertEqual(exc.exception.message, 'SampleModel.a_field may not be NULL or BLANK')
 
+    def test_save_field_is_False(self):
+        sample_model = SampleModel()
+        sample_model.a_field = False
+        sample_model.b_field = 'def'
+        sample_model.save()  # should be able to save False
+
+    def test_save_field_is_True(self):
+        sample_model = SampleModel()
+        sample_model.a_field = True
+        sample_model.b_field = 'def'
+        sample_model.save()  # should be able to save True
+
     def test_save_field_not_assigning(self):
         sample_model = SampleModel()
         sample_model.a_field = 'abc'
